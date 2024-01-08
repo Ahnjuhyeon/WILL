@@ -4,12 +4,12 @@ import DelEdit from "./components/del_edit";
 const Crud2 = () => {
   const [posts, setPosts] = useState([
     {
-      id: 1,
-      title: "1",
-      content: "content1",
+      id: Math.floor(Math.random() * 10000),
+      title: "1-1",
+      content: "content1-1",
       Comments: [
         {
-          id: 1,
+          id: Math.floor(Math.random() * 10000),
           title: "1",
           content: "content11",
         },
@@ -28,6 +28,7 @@ const Crud2 = () => {
           <div>
             {list.id}
             <p>{list.content}</p>
+            <h5>댓글</h5>
             <DelEdit
               key={list.id}
               post={list}
