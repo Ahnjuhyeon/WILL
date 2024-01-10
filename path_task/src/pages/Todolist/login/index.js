@@ -12,20 +12,20 @@ const LoginPage = () => {
       <Header>
         <div
           onClick={() => {
-            setIsLoginForm(true);
+            setIsLoginForm(false);
           }}
         >
           signIn
         </div>
         <div
           onClick={() => {
-            setIsLoginForm(false);
+            setIsLoginForm(true);
           }}
         >
           signUp
         </div>
       </Header>
-      {isLoginForm ? <Signin /> : <Signup />}
+      {isLoginForm ? <Signup /> : <Signin />}
     </Wrapper>
   );
 };
