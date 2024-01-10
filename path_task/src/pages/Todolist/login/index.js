@@ -62,8 +62,3 @@ const Header = styled.div`
     }
   }
 `;
-/*
-
-  /* background-color:${(props) =>
-    props.isFormLogin ? "#e0e0e0" : "#f5f5f5"}; */
-/* background-color: ${({ theme }) => theme.COLORS.primary}; */

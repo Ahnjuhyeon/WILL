@@ -2,7 +2,7 @@ const COLORS = {
   primary: "#75AFF2",
   secondary: "#97C7FF",
   font: "#FFFFFF",
-  error: "FF0000",
+  error: "#FF0000",
   white: "#FFFFFF",
   black: "#333333",
   // gray: {
@@ -12,7 +12,7 @@ const COLORS = {
   // },
 };
 const FONT_SIZE = {
-  small: "14px",
+  small: "12px",
   medium: "16px",
   large: "26px",
 };

@@ -21,22 +21,22 @@ const Signin = () => {
         })}
       >
         <InputBox
-          id="email"
+          id={"email"}
           variant="secondary"
           size="large"
           placeholder="email"
-          {...register("email")}
+          register={register}
+          errors={errors}
         />
-        {errors?.email ? <p>{errors.email?.message}</p> : null}
 
         <InputBox
-          id="password"
+          id={"password"}
           variant="secondary"
           size="large"
           placeholder="password"
-          {...register("password")}
+          register={register}
+          errors={errors}
         />
-        {errors?.password ? <p>{errors.password?.message}</p> : null}
 
         <ButtonBox variant="primary" size="large" font="small">
           Login

@@ -1,9 +1,24 @@
 import { css, styled } from "styled-components";
 
-const InputBox = ({ variant, size, font, ...inputProps }) => {
+const InputBox = ({
+  id,
+  errors,
+  variant,
+  size,
+  font,
+  register,
+  ...inputProps
+}) => {
   return (
     <>
-      <Input variant={variant} size={size} font={font} {...inputProps} />
+      <Input
+        variant={variant}
+        size={size}
+        font={font}
+        {...inputProps}
+        {...register(id)}
+      />
+      {errors[id] && <InputErrors>{errors[id].message}</InputErrors>}
     </>
   );
 };
@@ -63,4 +78,9 @@ const Input = styled.input`
   ${({ variant }) => variantCSS[variant]};
   ${({ size }) => sizeCSS[size]};
   ${({ font }) => fontCSS[font]};
+`;
+const InputErrors = styled.p`
+  margin-bottom: 5px;
+  color: ${({ theme }) => theme.COLORS.error};
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
 `;
