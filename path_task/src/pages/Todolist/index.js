@@ -4,8 +4,8 @@ import TodoMainPage from "./todo";
 const TodoPage = () => {
   return (
     <>
-      {/* <LoginPage /> */}
-      <TodoMainPage />
+      <LoginPage />
+      {/* <TodoMainPage /> */}
     </>
   );
 };

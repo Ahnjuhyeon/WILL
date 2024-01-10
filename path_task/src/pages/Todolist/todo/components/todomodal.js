@@ -9,6 +9,7 @@ const TodoModal = ({ onClose, setTodoList, todoList }) => {
     setTodoList([...todoList, title, content]);
     e.target.title.value = "";
     e.target.content.value = "";
+    onClose(alert("등록되었습니다"));
   };
   return (
     <Wrapper>
