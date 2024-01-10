@@ -10,10 +10,8 @@ const Edit = ({ commen, setComments, comments }) => {
     if (!isRefModal) return setIsRefModal(true);
     const commentscopy = [...comments];
     let find = commentscopy.find((el) => el.id === commenid);
-    console.log([find]);
     find.content = copyItemRef.current.value;
-    // console.log([find]);
-    setComments(commentscopy, [find]);
+    setComments(commentscopy);
     setIsRefModal(false);
   };
 
