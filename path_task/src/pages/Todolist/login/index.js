@@ -1,18 +1,31 @@
+import { useState } from "react";
 import { flexCenter } from "../../../styles/common.style";
 import Signin from "./components/signIn";
 import Signup from "./components/signUp";
 import styled from "styled-components";
 
 const LoginPage = () => {
+  const [isLoginForm, setIsLoginForm] = useState(false);
   return (
     <Wrapper>
       <h1>Welcome</h1>
       <Header>
-        <div>signIn</div>
-        <div>signUp</div>
+        <div
+          onClick={() => {
+            setIsLoginForm(true);
+          }}
+        >
+          signIn
+        </div>
+        <div
+          onClick={() => {
+            setIsLoginForm(false);
+          }}
+        >
+          signUp
+        </div>
       </Header>
-      <Signin />
-      <Signup />
+      {isLoginForm ? <Signin /> : <Signup />}
     </Wrapper>
   );
 };
@@ -25,8 +38,9 @@ const Wrapper = styled.div`
   ${flexCenter}
   flex-direction: column;
   & > h1 {
-    font-size: ${({ theme }) => theme.FONT_SIZE.large};
+    font-size: 40px;
     font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
+    padding-bottom: 30px;
   }
   background-color: #fff;
 `;
