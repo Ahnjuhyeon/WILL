@@ -1,9 +1,15 @@
 import { css, styled } from "styled-components";
 
-const ButtonBox = ({ children, size, variant, font, ...rest }) => {
+const ButtonBox = ({ children, size, variant, font, isValid, ...rest }) => {
   return (
     <>
-      <Button size={size} variant={variant} font={font} {...rest}>
+      <Button
+        size={size}
+        variant={variant}
+        font={font}
+        isValid={isValid}
+        {...rest}
+      >
         {children}
       </Button>
     </>
@@ -59,6 +65,9 @@ const Button = styled.button`
   /* button css 중 공통되는 부분 (교집합) */
   cursor: pointer;
   transition: all 0.6s;
+  &:disabled {
+    background-color: ${({ theme }) => theme.COLORS.gray[100]};
+  }
 
   /* 위에 custom한 css를 적용하기 위한 부분 */
   /* props로 전달받아 각각 요소를 조합해 조립하는 방식 */
