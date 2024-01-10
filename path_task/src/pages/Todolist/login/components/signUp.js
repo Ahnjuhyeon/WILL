@@ -10,7 +10,7 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
   return (
     <>
@@ -37,7 +37,7 @@ const Signup = () => {
         />
 
         <InputBox
-          id={"password"}
+          id={"passwordconfirm"}
           variant="secondary"
           size="large"
           placeholder="password check"
@@ -45,7 +45,12 @@ const Signup = () => {
           errors={errors}
         />
 
-        <ButtonBox variant="primary" size="large" font="small">
+        <ButtonBox
+          variant="primary"
+          size="large"
+          font="small"
+          disabled={!isValid}
+        >
           Join
         </ButtonBox>
       </InputWrapper>
@@ -59,9 +64,8 @@ const InputWrapper = styled.form`
   height: 230px;
   ${flexCenter};
   flex-direction: column;
-  /* position: relative; */
-  /* margin-bottom: 16px; */
   input::placeholder {
     color: #97c7ff;
   }
 `;
+//그... 아이디 확인 같은지 그거 해야한다

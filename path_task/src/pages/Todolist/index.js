@@ -1,9 +1,11 @@
 import LoginPage from "./login";
+import TodoMainPage from "./todo";
 
 const TodoPage = () => {
   return (
     <>
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <TodoMainPage />
     </>
   );
 };
@@ -16,6 +18,10 @@ export default TodoPage;
   - 회원가입페이지 
     로그인페이지
     회원가입페이지 
+  - todo페이지 
+    모달페이지(할일등록)
+    리스트페이지
+
   - utils 페이지 
     스키마
   - components페이지 
