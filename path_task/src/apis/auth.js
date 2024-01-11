@@ -3,21 +3,27 @@ import { axiosInstance } from "./core";
 const PATH = "/todo/user";
 
 const AuthApi = {
-  //sign-up
-  async postSignUpData(signUpData) {
-    const res = await axiosInstance().post(PATH, signUpData);
-    return res;
+  //sign-in
+  async signIn(email, password) {
+    const res = await axiosInstance().post(PATH + "/sign-in", {
+      email,
+      password,
+    });
+    return res.data;
   },
 
-  //sign-in
-  async postLoginInData(loginUserData) {
-    const res = await axiosInstance().post(PATH, loginUserData);
+  //sign-up
+  async signUp(email, password) {
+    const res = await axiosInstance().post(PATH + "/sign-up", {
+      email,
+      password,
+    });
     return res.data;
   },
 
   // logout
-  async getUserLogout() {
-    const res = await axiosInstance().get(`${PATH}/logout`);
+  async logOut() {
+    const res = await axiosInstance().post(PATH + "/sign-out");
     return res.data;
   },
 };

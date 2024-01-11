@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../utils/schema";
 import { useAuth } from "../../../../provider/auth-provider";
+import axios from "axios";
 
 const Signup = () => {
   const {
@@ -14,15 +15,26 @@ const Signup = () => {
     formState: { errors, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
-  const { SignUp } = useAuth();
-  console.log(SignUp);
+  const onSubmitSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      //어떻게 로그인으로 보낼까?
+      await axios.post("http://localhost:3000/user/sign", {
+        errors,
+      });
+      alert("축하");
+    } catch (err) {
+      alert(err.res.data.error);
+    }
+  };
 
   return (
     <>
       <InputWrapper
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
+        // onSubmit={handleSubmit((data) => {
+        //   console.log(data);
+        // })}
+        onSubmit={handleSubmit(onSubmitSignUp)}
       >
         <InputBox
           id={"email"}
