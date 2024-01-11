@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useEffect } from "react";
-export const axiosInstance = axios.create({
-  baseURL: "https://topdragon.co.kr",
-});
-const getdata = async () => {
-  const res = await axiosInstance.get(`/todo`);
-  console.log(res.data);
-  return res.data;
+import TokenRepository from "../repository/token-repository";
+export const axiosInstance = () => {
+  return axios.create({
+    baseURL: "https://topdragon.co.kr",
+    headers: {
+      Authorization: `Bearer ${TokenRepository.getToken()}`,
+    },
+    withCredentials: true,
+  });
 };
