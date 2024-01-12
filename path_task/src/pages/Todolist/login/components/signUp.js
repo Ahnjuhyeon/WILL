@@ -5,8 +5,6 @@ import ButtonBox from "../../../../components/button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../utils/schema";
-import AuthApi from "../../../../apis/auth";
-import axios from "axios";
 import { useAuth } from "../../../../provider/auth-provider";
 
 const Signup = () => {
