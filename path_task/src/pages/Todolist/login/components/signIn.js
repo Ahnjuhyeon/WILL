@@ -48,7 +48,6 @@ const Signin = () => {
           register={register}
           errors={errors}
         />
-
         <InputBox
           id={"pw"}
           variant="secondary"
