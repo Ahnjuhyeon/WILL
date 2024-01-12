@@ -30,7 +30,7 @@ const Signin = () => {
         />
 
         <InputBox
-          id={"password"}
+          id={"pw"}
           variant="secondary"
           size="large"
           placeholder="password"

@@ -5,22 +5,31 @@ import ButtonBox from "../../../../components/button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../utils/schema";
+import AuthApi from "../../../../apis/auth";
 import axios from "axios";
+import { useAuth } from "../../../../provider/auth-provider";
 
 const Signup = () => {
+  const { SignUp } = useAuth();
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
-  const onSubmitSignUp = async (e) => {
-    e.preventDefault();
+  const { email, pw } = getValues();
+  const inform = {
+    email,
+    pw,
+  };
+
+  const onSubmitSignUp = async () => {
+    //e.preventDefault();
     try {
+      const res = await SignUp(inform);
       //어떻게 로그인으로 보낼까?
-      await axios.post("http://localhost:3000/user/sign", {
-        errors,
-      });
+      console.log(res);
       alert("축하");
     } catch (err) {
       alert(err.res.data.error);
@@ -44,7 +53,7 @@ const Signup = () => {
           errors={errors}
         />
         <InputBox
-          id={"password"}
+          id={"pw"}
           variant="secondary"
           size="large"
           placeholder="password"
@@ -53,7 +62,7 @@ const Signup = () => {
         />
 
         <InputBox
-          id={"passwordconfirm"}
+          id={"pwconfirm"}
           variant="secondary"
           size="large"
           placeholder="password check"
