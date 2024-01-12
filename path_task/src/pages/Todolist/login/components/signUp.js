@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../utils/schema";
 import { useAuth } from "../../../../provider/auth-provider";
 
-const Signup = () => {
+const Signup = ({ setIsLoginForm }) => {
   const { SignUp } = useAuth();
   const {
     register,
@@ -28,7 +28,10 @@ const Signup = () => {
       const res = await SignUp(inform);
       //어떻게 로그인으로 보낼까?
       console.log(res);
-      alert("축하");
+      alert("축하합니다");
+      setIsLoginForm(false);
+      alert("다시 로그인해주세요");
+      // nvigate("/?page=todo");
     } catch (err) {
       alert(err.res.data.error);
     }

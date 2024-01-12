@@ -1,23 +1,43 @@
 import { styled } from "styled-components";
 import InputBox from "../../../../components/input";
 import { flexCenter } from "../../../../styles/common.style";
-import ButtonBox from "../../../../components/button";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../../../utils/schema";
+import ButtonBox from "../../../../components/button";
+// import { useAuth } from "../../../../provider/auth-provider";
 
 const Signin = () => {
+  // const { SignIn } = useAuth();
   const {
     register,
     handleSubmit,
+    // getValues,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
+  // const { email, pw } = getValues();
+  // const inform = {
+  //   email,
+  //   pw,
+  // };
+  //signIn
+  // const onSubmitSignIn = async () => {
+  //   console.log("onSubmitSignIn 함수 호출됨");
+  //   try {
+  //     const res = await SignIn({ email, pw });
+  //     console.log(email);
+  //     alert("축하합니다");
+  //   } catch (err) {
+  //     alert(err.res.data.error);
+  //   }
+  // };
+
   return (
     <>
       <InputWrapper
         onSubmit={handleSubmit((data) => {
           console.log(data);
-          // alert("이메일:" + data.email + " " + "비밀번호:" + data.password);
         })}
       >
         <InputBox

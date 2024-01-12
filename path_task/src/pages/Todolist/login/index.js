@@ -25,7 +25,7 @@ const LoginPage = () => {
           signUp
         </div>
       </Header>
-      {isLoginForm ? <Signup /> : <Signin />}
+      {isLoginForm ? <Signup setIsLoginForm={setIsLoginForm} /> : <Signin />}
     </Wrapper>
   );
 };
