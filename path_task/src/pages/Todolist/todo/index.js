@@ -2,6 +2,7 @@ import { useState } from "react";
 import TodoModal from "./components/todomodal";
 import { styled } from "styled-components";
 import { flexAlignCenter, flexCenter } from "../../../styles/common.style";
+import TodoContent from "./components/todocontent";
 
 const TodoMainPage = () => {
   const [isModal, setIsModal] = useState(false);
@@ -24,7 +25,7 @@ const TodoMainPage = () => {
           <h1>Todo List</h1>
           <Content>
             {todoList.map((todo) => (
-              <p>{todo}</p>
+              <TodoContent todo={todo} />
             ))}
           </Content>
           <div>
@@ -62,6 +63,7 @@ const Content = styled.div`
   height: calc(100% - 32px);
   padding-bottom: 64px;
   overflow: scroll;
+  background-color: aliceblue;
   ::-webkit-scrollbar {
     display: none;
   }
