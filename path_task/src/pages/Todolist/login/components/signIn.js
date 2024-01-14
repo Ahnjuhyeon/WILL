@@ -1,45 +1,39 @@
 import { styled } from "styled-components";
 import InputBox from "../../../../components/input";
 import { flexCenter } from "../../../../styles/common.style";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../../../utils/schema";
+import { schema2 } from "../../../../utils/schema";
 import ButtonBox from "../../../../components/button";
-// import { useAuth } from "../../../../provider/auth-provider";
+import { useAuth } from "../../../../provider/auth-provider";
 
 const Signin = () => {
-  // const { SignIn } = useAuth();
+  const { SignIn } = useAuth();
   const {
     register,
     handleSubmit,
-    // getValues,
+    getValues,
     formState: { errors, isValid },
-  } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
-  // const { email, pw } = getValues();
-  // const inform = {
-  //   email,
-  //   pw,
-  // };
+  } = useForm({ mode: "onChange", resolver: yupResolver(schema2) });
+  const { email, pw } = getValues();
+  const inform = {
+    email,
+    pw,
+  };
   //signIn
-  // const onSubmitSignIn = async () => {
-  //   console.log("onSubmitSignIn 함수 호출됨");
-  //   try {
-  //     const res = await SignIn({ email, pw });
-  //     console.log(email);
-  //     alert("축하합니다");
-  //   } catch (err) {
-  //     alert(err.res.data.error);
-  //   }
-  // };
+  const onSubmitSignIn = async () => {
+    console.log(inform);
+    try {
+      const res = await SignIn(inform);
+      alert("로그인이 완료되었습니다.");
+    } catch (err) {
+      alert(err.res);
+    }
+  };
 
   return (
     <>
-      <InputWrapper
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
-      >
+      <InputWrapper onSubmit={handleSubmit(onSubmitSignIn)}>
         <InputBox
           id={"email"}
           variant="secondary"

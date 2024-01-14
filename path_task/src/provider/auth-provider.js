@@ -23,10 +23,10 @@ export default AuthProvider;
 export const useAuth = () => {
   const [accessToken, setAccessToken] = useContext(AuthContext);
 
-  const SignIn = async ({ email, password }) => {
-    const res = await AuthApi.signIn(email, password);
-    setAccessToken(res.data.token);
-    TokenRepository.setToken(res.data.token);
+  const SignIn = async (inform) => {
+    const res = await AuthApi.signIn(inform);
+    setAccessToken(res.token);
+    TokenRepository.setToken(res.token);
     return res;
   };
 

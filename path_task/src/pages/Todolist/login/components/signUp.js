@@ -33,7 +33,7 @@ const Signup = ({ setIsLoginForm }) => {
       alert("다시 로그인해주세요");
       // nvigate("/?page=todo");
     } catch (err) {
-      alert(err.res.data.error);
+      alert("이미 존재하는 이메일입니다");
     }
   };
 
