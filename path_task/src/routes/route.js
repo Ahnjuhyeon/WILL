@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Pages from "../pages";
-import Signin from "../pages/Todolist/login/components/signIn";
+import TodoMainPage from "../pages/Todolist/todo";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Pages />,
   },
-  // {
-  //   path: "/sign-in",
-  //   element: <Signin />,
-  // },
+  {
+    path: "/todo",
+    element: <TodoMainPage />,
+  },
 ]);
 export default router;

@@ -6,9 +6,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema2 } from "../../../../utils/schema";
 import ButtonBox from "../../../../components/button";
 import { useAuth } from "../../../../provider/auth-provider";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const { SignIn } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -26,6 +28,7 @@ const Signin = () => {
     try {
       const res = await SignIn(inform);
       alert("로그인이 완료되었습니다.");
+      navigate("/todo");
     } catch (err) {
       alert(err.res);
     }
