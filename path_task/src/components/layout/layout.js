@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      {/* 여기에 로그아웃 넣어 */}
+      <div>
+        <button>로그아웃</button>
+      </div>
       <Outlet />
     </>
   );
