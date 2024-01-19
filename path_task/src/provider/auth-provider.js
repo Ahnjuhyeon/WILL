@@ -27,6 +27,7 @@ export const useAuth = () => {
     const res = await AuthApi.signIn(inform);
     setAccessToken(res.token);
     TokenRepository.setToken(res.token);
+    console.log(res);
     return res;
   };
 
